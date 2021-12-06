@@ -151,7 +151,6 @@ console.log(combined);
 clone = { ...first };
 
 // CLASSES
-
 class Person {
   constructor(name) {
     this.name = name;
@@ -160,7 +159,6 @@ class Person {
     console.log("walky");
   }
 }
-
 const person3 = new Person("Atakan");
 console.log(person3.name);
 person3.walk();
@@ -180,3 +178,31 @@ class Teacher extends Person {
 const teacher = new Teacher("Atakan", "University");
 
 //MODULES
+// we divide all the classes the other files in same directory.
+// second thing we need to do is making this js files public for other files.
+
+import Teacher from "./teacher";
+class Teacher extends Person {
+  constructor(name, degree) {
+    super(name);
+    this.degree = degree;
+  }
+  teach() {
+    console.log("teach");
+  }
+}
+
+//Named and Default Exports
+//We can export the objects that we want exactly from js files.
+import { promote } from "./teacher";
+class Teacher extends Person {
+  constructor(name, degree) {
+    super(name);
+    this.degree = degree;
+  }
+  teach() {
+    console.log("teach");
+  }
+}
+/* If you make some object default you donot need to use
+{} term. It will be called suddenly.*/
